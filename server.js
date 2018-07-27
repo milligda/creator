@@ -32,7 +32,9 @@ app.set("view engine", "handlebars");
 // Routing
 // ==============================================================================
 
-require("./controllers/controller")(app);
+var routes = require("./controllers/controller.js");
+
+app.use(routes);
 
 // ==============================================================================
 // Server Listener

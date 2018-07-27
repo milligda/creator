@@ -2,25 +2,20 @@
 // Required files
 // ==============================================================================
 
-var connection = require('../config/connection.js');
+var orm = require('../config/orm.js');
 
 // ==============================================================================
-// orm Object
+// world Object
 // ==============================================================================
 
-var orm = {
+var world = {
 
-    getAll: function(table, cb) {
-
-        var queryString = 'SELECT * FROM ' + table + ';';
-
-        connection.query(queryString, function (err, result) {
-            if (err) throw err;
-
-            cb(result);
+    getAll: function(cb) {
+        orm.getAll('worlds', function(res) {
+            cb(res);
         });
-    }
+    },
 }
 
-
-module.exports = orm;
+// export the world object
+module.exports = world;
