@@ -19,6 +19,15 @@ var orm = {
 
             cb(result);
         });
+    },
+    add: function(table, obj, cb) {
+        var queryString = 'INSERT INTO ' + table + ' SET ?';
+
+        connection.query(queryString, obj, function (err, result) {
+            if (err) throw err;
+
+            cb(result);
+        });
     }
 }
 

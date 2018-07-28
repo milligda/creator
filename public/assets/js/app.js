@@ -17,3 +17,18 @@ $(function() {
     setTimeout(displayContainer, 1000);
     setTimeout(displaySwitch, 2000);
 });
+
+// ==============================================================================
+// Event Listeners
+// ==============================================================================
+
+$(document).on('click', '#create-button', function() {
+
+    $.post('/api/create', function(response) {
+
+        console.log('created a new world');
+
+        // reload the page to get the updated worlds
+        location.reload();
+    });
+});

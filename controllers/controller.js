@@ -41,10 +41,16 @@ router.get('/destroyer', function (req, res) {
             worlds: data,
         };
 
-        // console.log(displayObj);
-
         // create the home page using index.handlebars and pass in the displayObj with the world information
         res.render('destroyer', displayObj);
+    });
+});
+
+// route for creating a new world
+router.post('/api/create', function (req, res) {
+
+    world.addWorld(function(result) {
+        res.json(result);
     });
 });
 
