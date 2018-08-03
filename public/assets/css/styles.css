@@ -1,5 +1,6 @@
 body {
     color: #333;
+    background-color:#222;
 }
 
 #page-background {
@@ -27,6 +28,7 @@ body {
     padding-top: 50px;
     margin: 0px auto;
     font-weight: 500;
+    text-align: center;
 }
 
 #button-container {
@@ -58,6 +60,10 @@ body {
     display: none;
 }
 
+#worlds-container {
+    opacity: 0;
+}
+
 #centered-content {
     text-align: center;
 }
@@ -83,3 +89,65 @@ body {
     color: #fff;
 }
 
+#worlds-container {
+    margin-top: 20px;
+}
+
+.carousel-cell {
+    width: 300px;
+    height: 300px;
+    margin-right: 50px;
+    background: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.world-image {
+    width: 300px;
+}
+
+.side-modal-container {
+    overflow: auto;
+}
+
+.side-modal {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: -250px;
+    background-color: #5C6266;
+    overflow-x: hidden;
+    padding-top: 10px;
+    transition: 0.5s;
+}
+
+.side-modal a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #f1f1f1;
+    display: block;
+}
+
+.side-modal .closeSideNavBtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.side-modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000;
+    opacity: 0.7;
+    z-index: 1800;
+}

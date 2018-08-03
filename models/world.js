@@ -26,6 +26,10 @@ var world = {
         });
     },
 
+    // deleteWorld: function(cb) {
+        
+    // },
+
     classifications: [
         'star',
         'gaseous',

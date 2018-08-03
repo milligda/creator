@@ -10,15 +10,6 @@
         <div id="button-container" class="row">
             <button id="create-button" class='btn btn-primary'>create a new world</button>
         </div>
-
-        <div id="worlds-container" class="row">
-            Worlds to be displayed here
-        </div>
-
-        
-
-        
-
         {{!-- <img src="{{image}}" class="img-fluid activity-image" alt="Responsive image"> --}}
 
         {{!-- <h2>{{name}}!</h2> --}}
@@ -26,10 +17,25 @@
 
     </div>
 
+    <div id="worlds-container">
+        <div class="worlds-carousel"></div>
+    </div>
+
     <div id="switch-container">
         <div id="centered-content">
             <a href='/destroyer' id="fall-button" >Fall from Grace</a>
         </div>
+    </div>
+
+    <div class="side-modal-container">
+                        
+        {{#each worlds}}
+            {{#unless destroyed}}
+                {{> worlds/world-data}}
+            {{/unless}}
+        {{/each}}
+    
+        <div class="side-modal-bg"></div>
     </div>
     
 </div>

@@ -23,7 +23,7 @@ router.get('/creator', function (req, res) {
             worlds: data,
         };
 
-        // console.log(displayObj);
+        console.log(displayObj);
 
         // create the home page using index.handlebars and pass in the displayObj with the world information
         res.render('creator', displayObj);
@@ -50,6 +50,14 @@ router.get('/destroyer', function (req, res) {
 router.post('/api/create', function (req, res) {
 
     world.addWorld(function(result) {
+        res.json(result);
+    });
+});
+
+// route for getting images
+router.get('/api/images', function (req, res) {
+
+    world.getAll(function(result) {
         res.json(result);
     });
 });
