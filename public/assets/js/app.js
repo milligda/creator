@@ -56,7 +56,7 @@ function initializeCarousel() {
         draggable: false
     });
 
-    getWorldImages();
+    // getWorldImages();
 }
 
 function getWorldImages() {
