@@ -13,7 +13,7 @@ var world = require('../models/world.js');
 
 
 // route to the creator url
-router.get('/creator', function (req, res) {
+router.get('/', function (req, res) {
 
     // get all the worlds from the database (via the orm which is called in the world.js file) 
     world.getAll(function(data) {
@@ -73,22 +73,6 @@ router.put('/api/world/:id', function (req, res) {
         } else {
             res.status(200).end();
         }
-    });
-});
-
-// route to the root url
-router.get('/*', function (req, res) {
-
-    // get all the worlds from the database (via the orm which is called in the world.js file) 
-    world.getAll(function(data) {
-
-        // create the display object for handlebars
-        var displayObj = {
-            worlds: data,
-        };
-
-        // create the home page using index.handlebars and pass in the displayObj with the world information
-        res.render('creator', displayObj);
     });
 });
 
