@@ -23,8 +23,6 @@ router.get('/creator', function (req, res) {
             worlds: data,
         };
 
-        console.log(displayObj);
-
         // create the home page using index.handlebars and pass in the displayObj with the world information
         res.render('creator', displayObj);
     });
@@ -62,6 +60,22 @@ router.get('/api/images', function (req, res) {
     });
 });
 
+// route for updating world to destroyed
+router.put('/api/world/:id', function (req, res) {
+
+    var condition = 'id = ' + req.params.id;
+    var update = 'destroyed = ' + req.body.destroyed;
+
+    world.updateWorld(update, condition, function(result) {
+        
+        if (result.changedRows == 0) {
+            return res.status(404).end();
+        } else {
+            res.status(200).end();
+        }
+    });
+});
+
 // route to the root url
 router.get('/*', function (req, res) {
 
@@ -73,14 +87,9 @@ router.get('/*', function (req, res) {
             worlds: data,
         };
 
-        // console.log(displayObj);
-
         // create the home page using index.handlebars and pass in the displayObj with the world information
         res.render('creator', displayObj);
     });
 });
-
-
-
 
 module.exports = router;

@@ -68,7 +68,7 @@ body {
     text-align: center;
 }
 
-#switch-container > #centered-content > a{
+#switch-container > #centered-content > a {
     border-radius: 10px;
     padding: 5px 10px;
     font-weight: 400px;
@@ -87,6 +87,23 @@ body {
 #redemption-button {
     background-color: rgb(108, 122, 250);
     color: #fff;
+}
+
+.destroy-button {
+    background-color: #CC0000;
+    color: #fff;
+    border-radius: 10px;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 10px 0px 0px 130px;
+    font-weight: 500;
+}
+
+.destroy-button:active, .destroy-button:hover, .destroy-button:focus {
+    background-color: #cc0000;
+    border-color: #cc0000;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 1);
 }
 
 #worlds-container {
@@ -114,21 +131,18 @@ body {
 
 .side-modal {
     height: 100vh;
-    width: 250px;
+    width: 350px;
     position: fixed;
     z-index: 2000;
     top: 0;
-    left: -250px;
-    background-color: #5C6266;
+    left: -350px;
     overflow-x: hidden;
     padding-top: 10px;
     transition: 0.5s;
 }
 
 .side-modal a {
-    padding: 8px 8px 8px 32px;
     text-decoration: none;
-    font-size: 25px;
     color: #f1f1f1;
     display: block;
 }
@@ -136,9 +150,8 @@ body {
 .side-modal .closeSideNavBtn {
     position: absolute;
     top: 0;
-    right: 25px;
+    left: 10px;
     font-size: 36px;
-    margin-left: 50px;
 }
 
 .side-modal-backdrop {
@@ -148,6 +161,26 @@ body {
     right: 0;
     bottom: 0;
     background: #000;
-    opacity: 0.7;
+    opacity: 0.8;
     z-index: 1800;
+}
+
+.world-data-images {
+    width: 330px;
+    max-width: 90vw;
+    margin: 60px 0px 20px 10px;
+}
+
+.side-modal > p {
+    padding-left: 20px;
+    text-transform: capitalize;
+    margin-bottom: 5px;
+}
+
+.side-modal > p > span {
+    font-weight: bold;
+}
+
+.lock-scroll {
+    overflow: hidden;
 }

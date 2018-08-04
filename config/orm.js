@@ -12,7 +12,9 @@ var orm = {
 
     getAll: function(table, cb) {
 
-        var queryString = 'SELECT * FROM ' + table + ';';
+        var queryString =   "SELECT id, world_name, world_type, classification, image_slug, "
+        queryString     +=  "IF(life, 'yes', 'no') life, IF(intelligent_life, 'yes', 'no') intelligent_life, destroyed "
+        queryString     +=  'FROM ' + table + ';';
 
         connection.query(queryString, function (err, result) {
             if (err) throw err;
@@ -20,6 +22,7 @@ var orm = {
             cb(result);
         });
     },
+
     add: function(table, obj, cb) {
         var queryString = 'INSERT INTO ' + table + ' SET ?';
 
@@ -28,8 +31,17 @@ var orm = {
 
             cb(result);
         });
+    },
+
+    update: function(table, update, condition, cb) {
+        var queryString = 'UPDATE ' + table + ' SET ' + update + ' WHERE ' + condition + ';';
+
+        connection.query(queryString, function(err, result) {
+            if (err) throw err;
+
+            cb(result);
+        });
     }
 }
-
 
 module.exports = orm;

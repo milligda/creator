@@ -19,16 +19,17 @@ var world = {
     addWorld: function(cb) {
         var newWorld = this.createWorld();
 
-        console.log(newWorld);
-
         orm.add('worlds', newWorld, function(res) {
             cb(res);
         });
     },
 
-    // deleteWorld: function(cb) {
-        
-    // },
+    updateWorld: function(update, condition, cb) {
+
+        orm.update('worlds', update, condition, function(res) {
+            cb(res);
+        });
+    },
 
     classifications: [
         'star',
@@ -60,26 +61,33 @@ var world = {
         // randomly determine the number for the planet name
         var randomName = Math.floor(Math.random() *  10000) + 1;
 
+        // determine if the world type is a star or planet
         if (randomType === 0) {
             worldType = 'star';
         } else {
             worldType = 'planet';
         }
 
+        // assign the classification
         classification = this.classifications[randomType];
 
+        // assign the name based on the classification and a random number
         name = classification + '_' + randomName;
 
+        // determine if there is life on the planet
         if ((classification === 'terrestrial' || classification === 'oceanic') && (randomLife > 60)) {
             life = true;
         } 
 
+        // determine if there is intelligent life on the planet
         if ((classification === 'terrestrial' || classification === 'oceanic') && (randomLife > 90)) {
             intelligentLife = true;
         }
 
+        // create the image slug
         imageSlug = classification + randomImage;
 
+        // create the newWorld object and return it
         var newWorld = {
             world_name: name,
             world_type: worldType,
